@@ -1,0 +1,24 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="AsmodatForex.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="AsmodatForex_com_efxnow_api_Gain_x0020_Capital_x0020___x0020_AutoEx_x0020_Trading_x0020_API" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://api.efxnow.com/DEMOWebServices2.8/Service.asmx</Value>
+    </Setting>
+    <Setting Name="AsmodatForex_com_efxnow_democharting_chartingservice_ChartingService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://democharting.efxnow.com/Charting/ChartingService.asmx</Value>
+    </Setting>
+    <Setting Name="AsmodatForex_com_efxnow_demoweb_authentyficationservice_AuthenticationService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://demoweb.efxnow.com/gaincapitalwebservices/authenticate/authenticationservice.asmx</Value>
+    </Setting>
+    <Setting Name="AsmodatForex_com_efxnow_demoweb_ratesservice_RatesService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://demoweb.efxnow.com/gaincapitalwebservices/rates/ratesservice.asmx</Value>
+    </Setting>
+    <Setting Name="AsmodatForex_com_efxnow_demoweb_tradingservice_TradingService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://demoweb.efxnow.com/gaincapitalwebservices/trading/tradingservice.asmx</Value>
+    </Setting>
+    <Setting Name="AsmodatForex_com_efxnow_demoweb_configurationservice_ConfigurationService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://demoweb.efxnow.com/GainCapitalWebServices/Configuration/ConfigurationService.asmx</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

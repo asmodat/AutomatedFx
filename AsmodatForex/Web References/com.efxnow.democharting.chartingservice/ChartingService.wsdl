@@ -1,0 +1,1307 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="www.GainCapital.com.WebServices/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="www.GainCapital.com.WebServices/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Provides chart plot Data for specific products for a predefined timeinterval</wsdl:documentation>
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="www.GainCapital.com.WebServices/">
+      <s:element name="GetChartBlotter">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Token" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Product" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="TimeInterval" type="tns:TimeFrame" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="TimeFrame">
+        <s:restriction base="s:string">
+          <s:enumeration value="ONE_MINUTE" />
+          <s:enumeration value="FIVE_MINUTE" />
+          <s:enumeration value="TEN_MINUTE" />
+          <s:enumeration value="FIFTEEN_MINUTE" />
+          <s:enumeration value="THIRTY_MINUTE" />
+          <s:enumeration value="ONE_HOUR" />
+          <s:enumeration value="TWO_HOUR" />
+          <s:enumeration value="FOUR_HOUR" />
+          <s:enumeration value="DAILY" />
+          <s:enumeration value="WEEKLY" />
+          <s:enumeration value="MONTHLY" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="GetChartBlotterResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetChartBlotterResult" type="tns:ChartData" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ChartData">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Product" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Data" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Success" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorNo" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="Authenticator" type="tns:Authenticator" />
+      <s:complexType name="Authenticator">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ApplicationName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IPAddress" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MachineName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Language" type="s:string" />
+        </s:sequence>
+        <s:anyAttribute />
+      </s:complexType>
+      <s:element name="GetLatestChartData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Token" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Product" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="TimeInterval" type="tns:TimeFrame" />
+            <s:element minOccurs="1" maxOccurs="1" name="Datetime" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLatestChartDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetLatestChartDataResult" type="tns:ChartData" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPreviousChartData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Token" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Product" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="TimeInterval" type="tns:TimeFrame" />
+            <s:element minOccurs="1" maxOccurs="1" name="DateTime" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPreviousChartDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPreviousChartDataResult" type="tns:ChartData" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetChartData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Token" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Product" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="TimeInterval" type="tns:TimeFrame" />
+            <s:element minOccurs="1" maxOccurs="1" name="startDateTime" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="endDateTime" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetChartDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetChartDataResult" type="tns:ChartData" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFlashChartData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Token" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Product" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="TimeInterval" type="tns:TimeFrame" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFlashChartDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFlashChartDataResult" type="tns:ChartData" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAnonymousFlashChartData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Token" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Product" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="TimeInterval" type="tns:TimeFrame" />
+            <s:element minOccurs="1" maxOccurs="1" name="IBRates" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAnonymousFlashChartDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAnonymousFlashChartDataResult" type="tns:ChartData" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAnonymousChartBlotter">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Token" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Product" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="TimeInterval" type="tns:TimeFrame" />
+            <s:element minOccurs="1" maxOccurs="1" name="IBRates" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAnonymousChartBlotterResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAnonymousChartBlotterResult" type="tns:ChartData" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetChartsBlotterWithFixedBars">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Token" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Product" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="TimeInterval" type="tns:TimeFrame" />
+            <s:element minOccurs="1" maxOccurs="1" name="Bars" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetChartsBlotterWithFixedBarsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetChartsBlotterWithFixedBarsResult" type="tns:ChartData" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetChartImage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Token" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Product" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="TimeInterval" type="tns:TimeFrame" />
+            <s:element minOccurs="0" maxOccurs="1" name="chartType" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetChartImageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetChartImageResult" type="tns:ChartImage" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ChartImage">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Success" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Image" type="s:base64Binary" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetChartsBlotterWithDateTimeFixedBars">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Token" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Product" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="TimeInterval" type="tns:TimeFrame" />
+            <s:element minOccurs="1" maxOccurs="1" name="startDateTime" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="endDateTime" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="Bars" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetChartsBlotterWithDateTimeFixedBarsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetChartsBlotterWithDateTimeFixedBarsResult" type="tns:ChartData" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetHistoricalSpreads">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Token" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Product" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="TimeInterval" type="tns:TimeFrame" />
+            <s:element minOccurs="0" maxOccurs="1" name="SpreadGroup" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="StartDateTime" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="EndDateTime" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetHistoricalSpreadsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetHistoricalSpreadsResult" type="tns:BlotterOfSpread" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="BlotterOfSpread">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Output" type="tns:ArrayOfSpread" />
+          <s:element minOccurs="1" maxOccurs="1" name="Success" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorNo" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfSpread">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Spread" nillable="true" type="tns:Spread" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Spread">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Provider" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CurrencyPair" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Time" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Open" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="High" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Average" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Low" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Close" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetRateComparisonChartData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Token" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Side" type="tns:Side" />
+            <s:element minOccurs="0" maxOccurs="1" name="Provider1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Provider2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Product" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="TimeInterval" type="tns:TimeFrame" />
+            <s:element minOccurs="0" maxOccurs="1" name="SpreadGroup" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="NoOfRecords" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="BlackOutMinutes" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="Side">
+        <s:restriction base="s:string">
+          <s:enumeration value="Bid" />
+          <s:enumeration value="Ask" />
+          <s:enumeration value="Mid" />
+          <s:enumeration value="Spread" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="GetRateComparisonChartDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetRateComparisonChartDataResult" type="tns:BlotterOfSpread" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ChartData" nillable="true" type="tns:ChartData" />
+      <s:element name="ChartImage" nillable="true" type="tns:ChartImage" />
+      <s:element name="BlotterOfSpread" nillable="true" type="tns:BlotterOfSpread" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetChartBlotterSoapIn">
+    <wsdl:part name="parameters" element="tns:GetChartBlotter" />
+  </wsdl:message>
+  <wsdl:message name="GetChartBlotterSoapOut">
+    <wsdl:part name="parameters" element="tns:GetChartBlotterResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetChartBlotterAuthenticator">
+    <wsdl:part name="Authenticator" element="tns:Authenticator" />
+  </wsdl:message>
+  <wsdl:message name="GetLatestChartDataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLatestChartData" />
+  </wsdl:message>
+  <wsdl:message name="GetLatestChartDataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetLatestChartDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetLatestChartDataAuthenticator">
+    <wsdl:part name="Authenticator" element="tns:Authenticator" />
+  </wsdl:message>
+  <wsdl:message name="GetPreviousChartDataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPreviousChartData" />
+  </wsdl:message>
+  <wsdl:message name="GetPreviousChartDataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPreviousChartDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPreviousChartDataAuthenticator">
+    <wsdl:part name="Authenticator" element="tns:Authenticator" />
+  </wsdl:message>
+  <wsdl:message name="GetChartDataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetChartData" />
+  </wsdl:message>
+  <wsdl:message name="GetChartDataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetChartDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetChartDataAuthenticator">
+    <wsdl:part name="Authenticator" element="tns:Authenticator" />
+  </wsdl:message>
+  <wsdl:message name="GetFlashChartDataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFlashChartData" />
+  </wsdl:message>
+  <wsdl:message name="GetFlashChartDataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFlashChartDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFlashChartDataAuthenticator">
+    <wsdl:part name="Authenticator" element="tns:Authenticator" />
+  </wsdl:message>
+  <wsdl:message name="GetAnonymousFlashChartDataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAnonymousFlashChartData" />
+  </wsdl:message>
+  <wsdl:message name="GetAnonymousFlashChartDataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAnonymousFlashChartDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAnonymousFlashChartDataAuthenticator">
+    <wsdl:part name="Authenticator" element="tns:Authenticator" />
+  </wsdl:message>
+  <wsdl:message name="GetAnonymousChartBlotterSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAnonymousChartBlotter" />
+  </wsdl:message>
+  <wsdl:message name="GetAnonymousChartBlotterSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAnonymousChartBlotterResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAnonymousChartBlotterAuthenticator">
+    <wsdl:part name="Authenticator" element="tns:Authenticator" />
+  </wsdl:message>
+  <wsdl:message name="GetChartsBlotterWithFixedBarsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetChartsBlotterWithFixedBars" />
+  </wsdl:message>
+  <wsdl:message name="GetChartsBlotterWithFixedBarsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetChartsBlotterWithFixedBarsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetChartsBlotterWithFixedBarsAuthenticator">
+    <wsdl:part name="Authenticator" element="tns:Authenticator" />
+  </wsdl:message>
+  <wsdl:message name="GetChartImageSoapIn">
+    <wsdl:part name="parameters" element="tns:GetChartImage" />
+  </wsdl:message>
+  <wsdl:message name="GetChartImageSoapOut">
+    <wsdl:part name="parameters" element="tns:GetChartImageResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetChartImageAuthenticator">
+    <wsdl:part name="Authenticator" element="tns:Authenticator" />
+  </wsdl:message>
+  <wsdl:message name="GetChartsBlotterWithDateTimeFixedBarsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetChartsBlotterWithDateTimeFixedBars" />
+  </wsdl:message>
+  <wsdl:message name="GetChartsBlotterWithDateTimeFixedBarsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetChartsBlotterWithDateTimeFixedBarsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetChartsBlotterWithDateTimeFixedBarsAuthenticator">
+    <wsdl:part name="Authenticator" element="tns:Authenticator" />
+  </wsdl:message>
+  <wsdl:message name="GetHistoricalSpreadsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetHistoricalSpreads" />
+  </wsdl:message>
+  <wsdl:message name="GetHistoricalSpreadsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetHistoricalSpreadsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetHistoricalSpreadsAuthenticator">
+    <wsdl:part name="Authenticator" element="tns:Authenticator" />
+  </wsdl:message>
+  <wsdl:message name="GetRateComparisonChartDataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetRateComparisonChartData" />
+  </wsdl:message>
+  <wsdl:message name="GetRateComparisonChartDataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetRateComparisonChartDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetRateComparisonChartDataAuthenticator">
+    <wsdl:part name="Authenticator" element="tns:Authenticator" />
+  </wsdl:message>
+  <wsdl:message name="GetChartBlotterHttpGetIn">
+    <wsdl:part name="Token" type="s:string" />
+    <wsdl:part name="Product" type="s:string" />
+    <wsdl:part name="TimeInterval" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetChartBlotterHttpGetOut">
+    <wsdl:part name="Body" element="tns:ChartData" />
+  </wsdl:message>
+  <wsdl:message name="GetLatestChartDataHttpGetIn">
+    <wsdl:part name="Token" type="s:string" />
+    <wsdl:part name="Product" type="s:string" />
+    <wsdl:part name="TimeInterval" type="s:string" />
+    <wsdl:part name="Datetime" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetLatestChartDataHttpGetOut">
+    <wsdl:part name="Body" element="tns:ChartData" />
+  </wsdl:message>
+  <wsdl:message name="GetPreviousChartDataHttpGetIn">
+    <wsdl:part name="Token" type="s:string" />
+    <wsdl:part name="Product" type="s:string" />
+    <wsdl:part name="TimeInterval" type="s:string" />
+    <wsdl:part name="DateTime" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetPreviousChartDataHttpGetOut">
+    <wsdl:part name="Body" element="tns:ChartData" />
+  </wsdl:message>
+  <wsdl:message name="GetChartDataHttpGetIn">
+    <wsdl:part name="Token" type="s:string" />
+    <wsdl:part name="Product" type="s:string" />
+    <wsdl:part name="TimeInterval" type="s:string" />
+    <wsdl:part name="startDateTime" type="s:string" />
+    <wsdl:part name="endDateTime" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetChartDataHttpGetOut">
+    <wsdl:part name="Body" element="tns:ChartData" />
+  </wsdl:message>
+  <wsdl:message name="GetFlashChartDataHttpGetIn">
+    <wsdl:part name="Token" type="s:string" />
+    <wsdl:part name="Product" type="s:string" />
+    <wsdl:part name="TimeInterval" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetFlashChartDataHttpGetOut">
+    <wsdl:part name="Body" element="tns:ChartData" />
+  </wsdl:message>
+  <wsdl:message name="GetAnonymousFlashChartDataHttpGetIn">
+    <wsdl:part name="Token" type="s:string" />
+    <wsdl:part name="Product" type="s:string" />
+    <wsdl:part name="TimeInterval" type="s:string" />
+    <wsdl:part name="IBRates" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetAnonymousFlashChartDataHttpGetOut">
+    <wsdl:part name="Body" element="tns:ChartData" />
+  </wsdl:message>
+  <wsdl:message name="GetAnonymousChartBlotterHttpGetIn">
+    <wsdl:part name="Token" type="s:string" />
+    <wsdl:part name="Product" type="s:string" />
+    <wsdl:part name="TimeInterval" type="s:string" />
+    <wsdl:part name="IBRates" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetAnonymousChartBlotterHttpGetOut">
+    <wsdl:part name="Body" element="tns:ChartData" />
+  </wsdl:message>
+  <wsdl:message name="GetChartsBlotterWithFixedBarsHttpGetIn">
+    <wsdl:part name="Token" type="s:string" />
+    <wsdl:part name="Product" type="s:string" />
+    <wsdl:part name="TimeInterval" type="s:string" />
+    <wsdl:part name="Bars" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetChartsBlotterWithFixedBarsHttpGetOut">
+    <wsdl:part name="Body" element="tns:ChartData" />
+  </wsdl:message>
+  <wsdl:message name="GetChartImageHttpGetIn">
+    <wsdl:part name="Token" type="s:string" />
+    <wsdl:part name="Product" type="s:string" />
+    <wsdl:part name="TimeInterval" type="s:string" />
+    <wsdl:part name="chartType" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetChartImageHttpGetOut">
+    <wsdl:part name="Body" element="tns:ChartImage" />
+  </wsdl:message>
+  <wsdl:message name="GetChartsBlotterWithDateTimeFixedBarsHttpGetIn">
+    <wsdl:part name="Token" type="s:string" />
+    <wsdl:part name="Product" type="s:string" />
+    <wsdl:part name="TimeInterval" type="s:string" />
+    <wsdl:part name="startDateTime" type="s:string" />
+    <wsdl:part name="endDateTime" type="s:string" />
+    <wsdl:part name="Bars" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetChartsBlotterWithDateTimeFixedBarsHttpGetOut">
+    <wsdl:part name="Body" element="tns:ChartData" />
+  </wsdl:message>
+  <wsdl:message name="GetHistoricalSpreadsHttpGetIn">
+    <wsdl:part name="Token" type="s:string" />
+    <wsdl:part name="Product" type="s:string" />
+    <wsdl:part name="TimeInterval" type="s:string" />
+    <wsdl:part name="SpreadGroup" type="s:string" />
+    <wsdl:part name="StartDateTime" type="s:string" />
+    <wsdl:part name="EndDateTime" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetHistoricalSpreadsHttpGetOut">
+    <wsdl:part name="Body" element="tns:BlotterOfSpread" />
+  </wsdl:message>
+  <wsdl:message name="GetRateComparisonChartDataHttpGetIn">
+    <wsdl:part name="Token" type="s:string" />
+    <wsdl:part name="Side" type="s:string" />
+    <wsdl:part name="Provider1" type="s:string" />
+    <wsdl:part name="Provider2" type="s:string" />
+    <wsdl:part name="Product" type="s:string" />
+    <wsdl:part name="TimeInterval" type="s:string" />
+    <wsdl:part name="SpreadGroup" type="s:string" />
+    <wsdl:part name="NoOfRecords" type="s:string" />
+    <wsdl:part name="BlackOutMinutes" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetRateComparisonChartDataHttpGetOut">
+    <wsdl:part name="Body" element="tns:BlotterOfSpread" />
+  </wsdl:message>
+  <wsdl:message name="GetChartBlotterHttpPostIn">
+    <wsdl:part name="Token" type="s:string" />
+    <wsdl:part name="Product" type="s:string" />
+    <wsdl:part name="TimeInterval" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetChartBlotterHttpPostOut">
+    <wsdl:part name="Body" element="tns:ChartData" />
+  </wsdl:message>
+  <wsdl:message name="GetLatestChartDataHttpPostIn">
+    <wsdl:part name="Token" type="s:string" />
+    <wsdl:part name="Product" type="s:string" />
+    <wsdl:part name="TimeInterval" type="s:string" />
+    <wsdl:part name="Datetime" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetLatestChartDataHttpPostOut">
+    <wsdl:part name="Body" element="tns:ChartData" />
+  </wsdl:message>
+  <wsdl:message name="GetPreviousChartDataHttpPostIn">
+    <wsdl:part name="Token" type="s:string" />
+    <wsdl:part name="Product" type="s:string" />
+    <wsdl:part name="TimeInterval" type="s:string" />
+    <wsdl:part name="DateTime" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetPreviousChartDataHttpPostOut">
+    <wsdl:part name="Body" element="tns:ChartData" />
+  </wsdl:message>
+  <wsdl:message name="GetChartDataHttpPostIn">
+    <wsdl:part name="Token" type="s:string" />
+    <wsdl:part name="Product" type="s:string" />
+    <wsdl:part name="TimeInterval" type="s:string" />
+    <wsdl:part name="startDateTime" type="s:string" />
+    <wsdl:part name="endDateTime" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetChartDataHttpPostOut">
+    <wsdl:part name="Body" element="tns:ChartData" />
+  </wsdl:message>
+  <wsdl:message name="GetFlashChartDataHttpPostIn">
+    <wsdl:part name="Token" type="s:string" />
+    <wsdl:part name="Product" type="s:string" />
+    <wsdl:part name="TimeInterval" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetFlashChartDataHttpPostOut">
+    <wsdl:part name="Body" element="tns:ChartData" />
+  </wsdl:message>
+  <wsdl:message name="GetAnonymousFlashChartDataHttpPostIn">
+    <wsdl:part name="Token" type="s:string" />
+    <wsdl:part name="Product" type="s:string" />
+    <wsdl:part name="TimeInterval" type="s:string" />
+    <wsdl:part name="IBRates" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetAnonymousFlashChartDataHttpPostOut">
+    <wsdl:part name="Body" element="tns:ChartData" />
+  </wsdl:message>
+  <wsdl:message name="GetAnonymousChartBlotterHttpPostIn">
+    <wsdl:part name="Token" type="s:string" />
+    <wsdl:part name="Product" type="s:string" />
+    <wsdl:part name="TimeInterval" type="s:string" />
+    <wsdl:part name="IBRates" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetAnonymousChartBlotterHttpPostOut">
+    <wsdl:part name="Body" element="tns:ChartData" />
+  </wsdl:message>
+  <wsdl:message name="GetChartsBlotterWithFixedBarsHttpPostIn">
+    <wsdl:part name="Token" type="s:string" />
+    <wsdl:part name="Product" type="s:string" />
+    <wsdl:part name="TimeInterval" type="s:string" />
+    <wsdl:part name="Bars" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetChartsBlotterWithFixedBarsHttpPostOut">
+    <wsdl:part name="Body" element="tns:ChartData" />
+  </wsdl:message>
+  <wsdl:message name="GetChartImageHttpPostIn">
+    <wsdl:part name="Token" type="s:string" />
+    <wsdl:part name="Product" type="s:string" />
+    <wsdl:part name="TimeInterval" type="s:string" />
+    <wsdl:part name="chartType" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetChartImageHttpPostOut">
+    <wsdl:part name="Body" element="tns:ChartImage" />
+  </wsdl:message>
+  <wsdl:message name="GetChartsBlotterWithDateTimeFixedBarsHttpPostIn">
+    <wsdl:part name="Token" type="s:string" />
+    <wsdl:part name="Product" type="s:string" />
+    <wsdl:part name="TimeInterval" type="s:string" />
+    <wsdl:part name="startDateTime" type="s:string" />
+    <wsdl:part name="endDateTime" type="s:string" />
+    <wsdl:part name="Bars" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetChartsBlotterWithDateTimeFixedBarsHttpPostOut">
+    <wsdl:part name="Body" element="tns:ChartData" />
+  </wsdl:message>
+  <wsdl:message name="GetHistoricalSpreadsHttpPostIn">
+    <wsdl:part name="Token" type="s:string" />
+    <wsdl:part name="Product" type="s:string" />
+    <wsdl:part name="TimeInterval" type="s:string" />
+    <wsdl:part name="SpreadGroup" type="s:string" />
+    <wsdl:part name="StartDateTime" type="s:string" />
+    <wsdl:part name="EndDateTime" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetHistoricalSpreadsHttpPostOut">
+    <wsdl:part name="Body" element="tns:BlotterOfSpread" />
+  </wsdl:message>
+  <wsdl:message name="GetRateComparisonChartDataHttpPostIn">
+    <wsdl:part name="Token" type="s:string" />
+    <wsdl:part name="Side" type="s:string" />
+    <wsdl:part name="Provider1" type="s:string" />
+    <wsdl:part name="Provider2" type="s:string" />
+    <wsdl:part name="Product" type="s:string" />
+    <wsdl:part name="TimeInterval" type="s:string" />
+    <wsdl:part name="SpreadGroup" type="s:string" />
+    <wsdl:part name="NoOfRecords" type="s:string" />
+    <wsdl:part name="BlackOutMinutes" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetRateComparisonChartDataHttpPostOut">
+    <wsdl:part name="Body" element="tns:BlotterOfSpread" />
+  </wsdl:message>
+  <wsdl:portType name="ChartingServiceSoap">
+    <wsdl:operation name="GetChartBlotter">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns Chart plot Data for the Product Requested</wsdl:documentation>
+      <wsdl:input message="tns:GetChartBlotterSoapIn" />
+      <wsdl:output message="tns:GetChartBlotterSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLatestChartData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns latest Chart plot Data for the Product later than the time specified in fromdatetime</wsdl:documentation>
+      <wsdl:input message="tns:GetLatestChartDataSoapIn" />
+      <wsdl:output message="tns:GetLatestChartDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPreviousChartData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns historic Chart plot Data for the Product upto the time specified in toDateTime</wsdl:documentation>
+      <wsdl:input message="tns:GetPreviousChartDataSoapIn" />
+      <wsdl:output message="tns:GetPreviousChartDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetChartData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns Chart plot Data for the Product and the time range specified</wsdl:documentation>
+      <wsdl:input message="tns:GetChartDataSoapIn" />
+      <wsdl:output message="tns:GetChartDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFlashChartData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns Chart plot Data for the Product and the time period specified</wsdl:documentation>
+      <wsdl:input message="tns:GetFlashChartDataSoapIn" />
+      <wsdl:output message="tns:GetFlashChartDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAnonymousFlashChartData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns Chart plot Data for the Product and the time period specified</wsdl:documentation>
+      <wsdl:input message="tns:GetAnonymousFlashChartDataSoapIn" />
+      <wsdl:output message="tns:GetAnonymousFlashChartDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAnonymousChartBlotter">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns Chart plot Data for the Product Requested</wsdl:documentation>
+      <wsdl:input message="tns:GetAnonymousChartBlotterSoapIn" />
+      <wsdl:output message="tns:GetAnonymousChartBlotterSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetChartsBlotterWithFixedBars">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns fixed number of bars for Product Requested</wsdl:documentation>
+      <wsdl:input message="tns:GetChartsBlotterWithFixedBarsSoapIn" />
+      <wsdl:output message="tns:GetChartsBlotterWithFixedBarsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetChartImage">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns chart image for requested Product &amp; Interval&lt;br&gt;&lt;br&gt;&lt;B&gt;VB.NET sample code to retrieve image&lt;/B&gt;&lt;br&gt;Dim result As ChartImage = {chartservice}.GetChartImage({product}, {interval}, {chartType}) &lt;br&gt;Dim byt As [Byte]() = result.Image &lt;br&gt;Dim ms As New IO.MemoryStream(byt) &lt;br&gt;Dim bf As New System.Runtime.Serialization.Formatters.Binary.BinaryFormatter()&lt;br&gt;Dim b As Bitmap = Image.FromStream(ms)</wsdl:documentation>
+      <wsdl:input message="tns:GetChartImageSoapIn" />
+      <wsdl:output message="tns:GetChartImageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetChartsBlotterWithDateTimeFixedBars">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns fixed number of bars for Product Requested</wsdl:documentation>
+      <wsdl:input message="tns:GetChartsBlotterWithDateTimeFixedBarsSoapIn" />
+      <wsdl:output message="tns:GetChartsBlotterWithDateTimeFixedBarsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHistoricalSpreads">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns historical spread data for charts</wsdl:documentation>
+      <wsdl:input message="tns:GetHistoricalSpreadsSoapIn" />
+      <wsdl:output message="tns:GetHistoricalSpreadsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRateComparisonChartData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns historical rate comparison data from given providers</wsdl:documentation>
+      <wsdl:input message="tns:GetRateComparisonChartDataSoapIn" />
+      <wsdl:output message="tns:GetRateComparisonChartDataSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ChartingServiceHttpGet">
+    <wsdl:operation name="GetChartBlotter">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns Chart plot Data for the Product Requested</wsdl:documentation>
+      <wsdl:input message="tns:GetChartBlotterHttpGetIn" />
+      <wsdl:output message="tns:GetChartBlotterHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLatestChartData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns latest Chart plot Data for the Product later than the time specified in fromdatetime</wsdl:documentation>
+      <wsdl:input message="tns:GetLatestChartDataHttpGetIn" />
+      <wsdl:output message="tns:GetLatestChartDataHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPreviousChartData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns historic Chart plot Data for the Product upto the time specified in toDateTime</wsdl:documentation>
+      <wsdl:input message="tns:GetPreviousChartDataHttpGetIn" />
+      <wsdl:output message="tns:GetPreviousChartDataHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetChartData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns Chart plot Data for the Product and the time range specified</wsdl:documentation>
+      <wsdl:input message="tns:GetChartDataHttpGetIn" />
+      <wsdl:output message="tns:GetChartDataHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFlashChartData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns Chart plot Data for the Product and the time period specified</wsdl:documentation>
+      <wsdl:input message="tns:GetFlashChartDataHttpGetIn" />
+      <wsdl:output message="tns:GetFlashChartDataHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAnonymousFlashChartData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns Chart plot Data for the Product and the time period specified</wsdl:documentation>
+      <wsdl:input message="tns:GetAnonymousFlashChartDataHttpGetIn" />
+      <wsdl:output message="tns:GetAnonymousFlashChartDataHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAnonymousChartBlotter">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns Chart plot Data for the Product Requested</wsdl:documentation>
+      <wsdl:input message="tns:GetAnonymousChartBlotterHttpGetIn" />
+      <wsdl:output message="tns:GetAnonymousChartBlotterHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetChartsBlotterWithFixedBars">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns fixed number of bars for Product Requested</wsdl:documentation>
+      <wsdl:input message="tns:GetChartsBlotterWithFixedBarsHttpGetIn" />
+      <wsdl:output message="tns:GetChartsBlotterWithFixedBarsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetChartImage">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns chart image for requested Product &amp; Interval&lt;br&gt;&lt;br&gt;&lt;B&gt;VB.NET sample code to retrieve image&lt;/B&gt;&lt;br&gt;Dim result As ChartImage = {chartservice}.GetChartImage({product}, {interval}, {chartType}) &lt;br&gt;Dim byt As [Byte]() = result.Image &lt;br&gt;Dim ms As New IO.MemoryStream(byt) &lt;br&gt;Dim bf As New System.Runtime.Serialization.Formatters.Binary.BinaryFormatter()&lt;br&gt;Dim b As Bitmap = Image.FromStream(ms)</wsdl:documentation>
+      <wsdl:input message="tns:GetChartImageHttpGetIn" />
+      <wsdl:output message="tns:GetChartImageHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetChartsBlotterWithDateTimeFixedBars">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns fixed number of bars for Product Requested</wsdl:documentation>
+      <wsdl:input message="tns:GetChartsBlotterWithDateTimeFixedBarsHttpGetIn" />
+      <wsdl:output message="tns:GetChartsBlotterWithDateTimeFixedBarsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHistoricalSpreads">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns historical spread data for charts</wsdl:documentation>
+      <wsdl:input message="tns:GetHistoricalSpreadsHttpGetIn" />
+      <wsdl:output message="tns:GetHistoricalSpreadsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRateComparisonChartData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns historical rate comparison data from given providers</wsdl:documentation>
+      <wsdl:input message="tns:GetRateComparisonChartDataHttpGetIn" />
+      <wsdl:output message="tns:GetRateComparisonChartDataHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ChartingServiceHttpPost">
+    <wsdl:operation name="GetChartBlotter">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns Chart plot Data for the Product Requested</wsdl:documentation>
+      <wsdl:input message="tns:GetChartBlotterHttpPostIn" />
+      <wsdl:output message="tns:GetChartBlotterHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLatestChartData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns latest Chart plot Data for the Product later than the time specified in fromdatetime</wsdl:documentation>
+      <wsdl:input message="tns:GetLatestChartDataHttpPostIn" />
+      <wsdl:output message="tns:GetLatestChartDataHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPreviousChartData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns historic Chart plot Data for the Product upto the time specified in toDateTime</wsdl:documentation>
+      <wsdl:input message="tns:GetPreviousChartDataHttpPostIn" />
+      <wsdl:output message="tns:GetPreviousChartDataHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetChartData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns Chart plot Data for the Product and the time range specified</wsdl:documentation>
+      <wsdl:input message="tns:GetChartDataHttpPostIn" />
+      <wsdl:output message="tns:GetChartDataHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFlashChartData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns Chart plot Data for the Product and the time period specified</wsdl:documentation>
+      <wsdl:input message="tns:GetFlashChartDataHttpPostIn" />
+      <wsdl:output message="tns:GetFlashChartDataHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAnonymousFlashChartData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns Chart plot Data for the Product and the time period specified</wsdl:documentation>
+      <wsdl:input message="tns:GetAnonymousFlashChartDataHttpPostIn" />
+      <wsdl:output message="tns:GetAnonymousFlashChartDataHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAnonymousChartBlotter">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns Chart plot Data for the Product Requested</wsdl:documentation>
+      <wsdl:input message="tns:GetAnonymousChartBlotterHttpPostIn" />
+      <wsdl:output message="tns:GetAnonymousChartBlotterHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetChartsBlotterWithFixedBars">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns fixed number of bars for Product Requested</wsdl:documentation>
+      <wsdl:input message="tns:GetChartsBlotterWithFixedBarsHttpPostIn" />
+      <wsdl:output message="tns:GetChartsBlotterWithFixedBarsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetChartImage">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns chart image for requested Product &amp; Interval&lt;br&gt;&lt;br&gt;&lt;B&gt;VB.NET sample code to retrieve image&lt;/B&gt;&lt;br&gt;Dim result As ChartImage = {chartservice}.GetChartImage({product}, {interval}, {chartType}) &lt;br&gt;Dim byt As [Byte]() = result.Image &lt;br&gt;Dim ms As New IO.MemoryStream(byt) &lt;br&gt;Dim bf As New System.Runtime.Serialization.Formatters.Binary.BinaryFormatter()&lt;br&gt;Dim b As Bitmap = Image.FromStream(ms)</wsdl:documentation>
+      <wsdl:input message="tns:GetChartImageHttpPostIn" />
+      <wsdl:output message="tns:GetChartImageHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetChartsBlotterWithDateTimeFixedBars">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns fixed number of bars for Product Requested</wsdl:documentation>
+      <wsdl:input message="tns:GetChartsBlotterWithDateTimeFixedBarsHttpPostIn" />
+      <wsdl:output message="tns:GetChartsBlotterWithDateTimeFixedBarsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHistoricalSpreads">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns historical spread data for charts</wsdl:documentation>
+      <wsdl:input message="tns:GetHistoricalSpreadsHttpPostIn" />
+      <wsdl:output message="tns:GetHistoricalSpreadsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRateComparisonChartData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns historical rate comparison data from given providers</wsdl:documentation>
+      <wsdl:input message="tns:GetRateComparisonChartDataHttpPostIn" />
+      <wsdl:output message="tns:GetRateComparisonChartDataHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ChartingServiceSoap" type="tns:ChartingServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetChartBlotter">
+      <soap:operation soapAction="www.GainCapital.com.WebServices/GetChartBlotter" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetChartBlotterAuthenticator" part="Authenticator" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLatestChartData">
+      <soap:operation soapAction="www.GainCapital.com.WebServices/GetLatestChartData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetLatestChartDataAuthenticator" part="Authenticator" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPreviousChartData">
+      <soap:operation soapAction="www.GainCapital.com.WebServices/GetPreviousChartData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetPreviousChartDataAuthenticator" part="Authenticator" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetChartData">
+      <soap:operation soapAction="www.GainCapital.com.WebServices/GetChartData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetChartDataAuthenticator" part="Authenticator" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFlashChartData">
+      <soap:operation soapAction="www.GainCapital.com.WebServices/GetFlashChartData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetFlashChartDataAuthenticator" part="Authenticator" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAnonymousFlashChartData">
+      <soap:operation soapAction="www.GainCapital.com.WebServices/GetAnonymousFlashChartData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetAnonymousFlashChartDataAuthenticator" part="Authenticator" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAnonymousChartBlotter">
+      <soap:operation soapAction="www.GainCapital.com.WebServices/GetAnonymousChartBlotter" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetAnonymousChartBlotterAuthenticator" part="Authenticator" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetChartsBlotterWithFixedBars">
+      <soap:operation soapAction="www.GainCapital.com.WebServices/GetChartsBlotterWithFixedBars" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetChartsBlotterWithFixedBarsAuthenticator" part="Authenticator" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetChartImage">
+      <soap:operation soapAction="www.GainCapital.com.WebServices/GetChartImage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetChartImageAuthenticator" part="Authenticator" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetChartsBlotterWithDateTimeFixedBars">
+      <soap:operation soapAction="www.GainCapital.com.WebServices/GetChartsBlotterWithDateTimeFixedBars" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetChartsBlotterWithDateTimeFixedBarsAuthenticator" part="Authenticator" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHistoricalSpreads">
+      <soap:operation soapAction="www.GainCapital.com.WebServices/GetHistoricalSpreads" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetHistoricalSpreadsAuthenticator" part="Authenticator" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRateComparisonChartData">
+      <soap:operation soapAction="www.GainCapital.com.WebServices/GetRateComparisonChartData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetRateComparisonChartDataAuthenticator" part="Authenticator" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ChartingServiceSoap12" type="tns:ChartingServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetChartBlotter">
+      <soap12:operation soapAction="www.GainCapital.com.WebServices/GetChartBlotter" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetChartBlotterAuthenticator" part="Authenticator" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLatestChartData">
+      <soap12:operation soapAction="www.GainCapital.com.WebServices/GetLatestChartData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetLatestChartDataAuthenticator" part="Authenticator" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPreviousChartData">
+      <soap12:operation soapAction="www.GainCapital.com.WebServices/GetPreviousChartData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetPreviousChartDataAuthenticator" part="Authenticator" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetChartData">
+      <soap12:operation soapAction="www.GainCapital.com.WebServices/GetChartData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetChartDataAuthenticator" part="Authenticator" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFlashChartData">
+      <soap12:operation soapAction="www.GainCapital.com.WebServices/GetFlashChartData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetFlashChartDataAuthenticator" part="Authenticator" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAnonymousFlashChartData">
+      <soap12:operation soapAction="www.GainCapital.com.WebServices/GetAnonymousFlashChartData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetAnonymousFlashChartDataAuthenticator" part="Authenticator" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAnonymousChartBlotter">
+      <soap12:operation soapAction="www.GainCapital.com.WebServices/GetAnonymousChartBlotter" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetAnonymousChartBlotterAuthenticator" part="Authenticator" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetChartsBlotterWithFixedBars">
+      <soap12:operation soapAction="www.GainCapital.com.WebServices/GetChartsBlotterWithFixedBars" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetChartsBlotterWithFixedBarsAuthenticator" part="Authenticator" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetChartImage">
+      <soap12:operation soapAction="www.GainCapital.com.WebServices/GetChartImage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetChartImageAuthenticator" part="Authenticator" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetChartsBlotterWithDateTimeFixedBars">
+      <soap12:operation soapAction="www.GainCapital.com.WebServices/GetChartsBlotterWithDateTimeFixedBars" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetChartsBlotterWithDateTimeFixedBarsAuthenticator" part="Authenticator" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHistoricalSpreads">
+      <soap12:operation soapAction="www.GainCapital.com.WebServices/GetHistoricalSpreads" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetHistoricalSpreadsAuthenticator" part="Authenticator" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRateComparisonChartData">
+      <soap12:operation soapAction="www.GainCapital.com.WebServices/GetRateComparisonChartData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetRateComparisonChartDataAuthenticator" part="Authenticator" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ChartingServiceHttpGet" type="tns:ChartingServiceHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="GetChartBlotter">
+      <http:operation location="/GetChartBlotter" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLatestChartData">
+      <http:operation location="/GetLatestChartData" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPreviousChartData">
+      <http:operation location="/GetPreviousChartData" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetChartData">
+      <http:operation location="/GetChartData" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFlashChartData">
+      <http:operation location="/GetFlashChartData" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAnonymousFlashChartData">
+      <http:operation location="/GetAnonymousFlashChartData" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAnonymousChartBlotter">
+      <http:operation location="/GetAnonymousChartBlotter" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetChartsBlotterWithFixedBars">
+      <http:operation location="/GetChartsBlotterWithFixedBars" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetChartImage">
+      <http:operation location="/GetChartImage" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetChartsBlotterWithDateTimeFixedBars">
+      <http:operation location="/GetChartsBlotterWithDateTimeFixedBars" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHistoricalSpreads">
+      <http:operation location="/GetHistoricalSpreads" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRateComparisonChartData">
+      <http:operation location="/GetRateComparisonChartData" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ChartingServiceHttpPost" type="tns:ChartingServiceHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="GetChartBlotter">
+      <http:operation location="/GetChartBlotter" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLatestChartData">
+      <http:operation location="/GetLatestChartData" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPreviousChartData">
+      <http:operation location="/GetPreviousChartData" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetChartData">
+      <http:operation location="/GetChartData" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFlashChartData">
+      <http:operation location="/GetFlashChartData" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAnonymousFlashChartData">
+      <http:operation location="/GetAnonymousFlashChartData" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAnonymousChartBlotter">
+      <http:operation location="/GetAnonymousChartBlotter" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetChartsBlotterWithFixedBars">
+      <http:operation location="/GetChartsBlotterWithFixedBars" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetChartImage">
+      <http:operation location="/GetChartImage" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetChartsBlotterWithDateTimeFixedBars">
+      <http:operation location="/GetChartsBlotterWithDateTimeFixedBars" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHistoricalSpreads">
+      <http:operation location="/GetHistoricalSpreads" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRateComparisonChartData">
+      <http:operation location="/GetRateComparisonChartData" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ChartingService">
+    <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Provides chart plot Data for specific products for a predefined timeinterval</wsdl:documentation>
+    <wsdl:port name="ChartingServiceSoap" binding="tns:ChartingServiceSoap">
+      <soap:address location="http://democharting.efxnow.com/Charting/ChartingService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ChartingServiceSoap12" binding="tns:ChartingServiceSoap12">
+      <soap12:address location="http://democharting.efxnow.com/Charting/ChartingService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ChartingServiceHttpGet" binding="tns:ChartingServiceHttpGet">
+      <http:address location="http://democharting.efxnow.com/Charting/ChartingService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ChartingServiceHttpPost" binding="tns:ChartingServiceHttpPost">
+      <http:address location="http://democharting.efxnow.com/Charting/ChartingService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

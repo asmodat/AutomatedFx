@@ -1,0 +1,489 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="www.GainCapital.com.WebServices" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="www.GainCapital.com.WebServices" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Provides rates Data for all the products or specific product</wsdl:documentation>
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="www.GainCapital.com.WebServices">
+      <s:element name="getRateBlotter">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getRateBlotterResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getRateBlotterResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Authenticator" type="tns:Authenticator" />
+      <s:complexType name="Authenticator">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ApplicationName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IPAddress" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MachineName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Language" type="s:string" />
+        </s:sequence>
+        <s:anyAttribute />
+      </s:complexType>
+      <s:element name="GetRates">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Token" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="IBRates" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="Keyvalue" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="currencygroup" type="tns:CollectionOfInt32" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="CollectionOfInt32">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Input" type="tns:ArrayOfInt" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfInt">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="int" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetRatesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetRatesResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getAnonymousRateBlotter">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Token" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="IBRates" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="Keyvalue" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="currencygroup" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getAnonymousRateBlotterResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getAnonymousRateBlotterResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getRate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Token" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Product" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getRateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getRateResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getAnonymousRate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Token" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Product" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="IBRates" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="Keyvalue" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="currencygroup" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getAnonymousRateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getAnonymousRateResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="getRateBlotterSoapIn">
+    <wsdl:part name="parameters" element="tns:getRateBlotter" />
+  </wsdl:message>
+  <wsdl:message name="getRateBlotterSoapOut">
+    <wsdl:part name="parameters" element="tns:getRateBlotterResponse" />
+  </wsdl:message>
+  <wsdl:message name="getRateBlotterAuthenticator">
+    <wsdl:part name="Authenticator" element="tns:Authenticator" />
+  </wsdl:message>
+  <wsdl:message name="GetRatesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetRates" />
+  </wsdl:message>
+  <wsdl:message name="GetRatesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetRatesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetRatesAuthenticator">
+    <wsdl:part name="Authenticator" element="tns:Authenticator" />
+  </wsdl:message>
+  <wsdl:message name="getAnonymousRateBlotterSoapIn">
+    <wsdl:part name="parameters" element="tns:getAnonymousRateBlotter" />
+  </wsdl:message>
+  <wsdl:message name="getAnonymousRateBlotterSoapOut">
+    <wsdl:part name="parameters" element="tns:getAnonymousRateBlotterResponse" />
+  </wsdl:message>
+  <wsdl:message name="getAnonymousRateBlotterAuthenticator">
+    <wsdl:part name="Authenticator" element="tns:Authenticator" />
+  </wsdl:message>
+  <wsdl:message name="getRateSoapIn">
+    <wsdl:part name="parameters" element="tns:getRate" />
+  </wsdl:message>
+  <wsdl:message name="getRateSoapOut">
+    <wsdl:part name="parameters" element="tns:getRateResponse" />
+  </wsdl:message>
+  <wsdl:message name="getRateAuthenticator">
+    <wsdl:part name="Authenticator" element="tns:Authenticator" />
+  </wsdl:message>
+  <wsdl:message name="getAnonymousRateSoapIn">
+    <wsdl:part name="parameters" element="tns:getAnonymousRate" />
+  </wsdl:message>
+  <wsdl:message name="getAnonymousRateSoapOut">
+    <wsdl:part name="parameters" element="tns:getAnonymousRateResponse" />
+  </wsdl:message>
+  <wsdl:message name="getAnonymousRateAuthenticator">
+    <wsdl:part name="Authenticator" element="tns:Authenticator" />
+  </wsdl:message>
+  <wsdl:message name="getRateBlotterHttpGetIn">
+    <wsdl:part name="Token" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getRateBlotterHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="getAnonymousRateBlotterHttpGetIn">
+    <wsdl:part name="Token" type="s:string" />
+    <wsdl:part name="IBRates" type="s:string" />
+    <wsdl:part name="Keyvalue" type="s:string" />
+    <wsdl:part name="currencygroup" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getAnonymousRateBlotterHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="getRateHttpGetIn">
+    <wsdl:part name="Token" type="s:string" />
+    <wsdl:part name="Product" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getRateHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="getAnonymousRateHttpGetIn">
+    <wsdl:part name="Token" type="s:string" />
+    <wsdl:part name="Product" type="s:string" />
+    <wsdl:part name="IBRates" type="s:string" />
+    <wsdl:part name="Keyvalue" type="s:string" />
+    <wsdl:part name="currencygroup" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getAnonymousRateHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="getRateBlotterHttpPostIn">
+    <wsdl:part name="Token" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getRateBlotterHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="getAnonymousRateBlotterHttpPostIn">
+    <wsdl:part name="Token" type="s:string" />
+    <wsdl:part name="IBRates" type="s:string" />
+    <wsdl:part name="Keyvalue" type="s:string" />
+    <wsdl:part name="currencygroup" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getAnonymousRateBlotterHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="getRateHttpPostIn">
+    <wsdl:part name="Token" type="s:string" />
+    <wsdl:part name="Product" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getRateHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="getAnonymousRateHttpPostIn">
+    <wsdl:part name="Token" type="s:string" />
+    <wsdl:part name="Product" type="s:string" />
+    <wsdl:part name="IBRates" type="s:string" />
+    <wsdl:part name="Keyvalue" type="s:string" />
+    <wsdl:part name="currencygroup" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getAnonymousRateHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:portType name="RatesServiceSoap">
+    <wsdl:operation name="getRateBlotter">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns Rates Blotter that includes Rate Information for all the Pairs in the string format - Pair\BID\OFFER\STATUS\HIGH\LOW\DECIMALS\NOTATION$Pair\BID\OFFER\STATUS\HIGH\LOW\DECIMALS\NOTATION\CLOSINGBID\CONTRACTPAIR\COUNTERPAIR$...</wsdl:documentation>
+      <wsdl:input message="tns:getRateBlotterSoapIn" />
+      <wsdl:output message="tns:getRateBlotterSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRates">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns Rates Blotter that includes Rate Information for all the Pairs in the string format - Pair\BID\OFFER\STATUS\HIGH\LOW\DECIMALS\NOTATION$Pair\BID\OFFER\STATUS\HIGH\LOW\DECIMALS\NOTATION\CLOSINGBID\CONTRACTPAIR\COUNTERPAIR$...</wsdl:documentation>
+      <wsdl:input message="tns:GetRatesSoapIn" />
+      <wsdl:output message="tns:GetRatesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getAnonymousRateBlotter">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns Rates Blotter that includes Rate Information for all the Pairs in the string format - Pair\BID\OFFER\STATUS\HIGH\LOW\DECIMALS\NOTATION$Pair\BID\OFFER\STATUS\HIGH\LOW\DECIMALS\NOTATION\CLOSINGBID\CONTRACTPAIR\COUNTERPAIR$...</wsdl:documentation>
+      <wsdl:input message="tns:getAnonymousRateBlotterSoapIn" />
+      <wsdl:output message="tns:getAnonymousRateBlotterSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getRate">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns Rate information for the specified Product in the string format - Pair\BID\OFFER\STATUS\HIGH\LOW\DECIMALS\NOTATION\CLOSINGBID\CONTRACTPAIR\COUNTERPAIR$...</wsdl:documentation>
+      <wsdl:input message="tns:getRateSoapIn" />
+      <wsdl:output message="tns:getRateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getAnonymousRate">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns Rate information for the specified Product in the string format - Pair\BID\OFFER\STATUS\HIGH\LOW\DECIMALS\NOTATION\CLOSINGBID\CONTRACTPAIR\COUNTERPAIR$...</wsdl:documentation>
+      <wsdl:input message="tns:getAnonymousRateSoapIn" />
+      <wsdl:output message="tns:getAnonymousRateSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="RatesServiceHttpGet">
+    <wsdl:operation name="getRateBlotter">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns Rates Blotter that includes Rate Information for all the Pairs in the string format - Pair\BID\OFFER\STATUS\HIGH\LOW\DECIMALS\NOTATION$Pair\BID\OFFER\STATUS\HIGH\LOW\DECIMALS\NOTATION\CLOSINGBID\CONTRACTPAIR\COUNTERPAIR$...</wsdl:documentation>
+      <wsdl:input message="tns:getRateBlotterHttpGetIn" />
+      <wsdl:output message="tns:getRateBlotterHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getAnonymousRateBlotter">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns Rates Blotter that includes Rate Information for all the Pairs in the string format - Pair\BID\OFFER\STATUS\HIGH\LOW\DECIMALS\NOTATION$Pair\BID\OFFER\STATUS\HIGH\LOW\DECIMALS\NOTATION\CLOSINGBID\CONTRACTPAIR\COUNTERPAIR$...</wsdl:documentation>
+      <wsdl:input message="tns:getAnonymousRateBlotterHttpGetIn" />
+      <wsdl:output message="tns:getAnonymousRateBlotterHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getRate">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns Rate information for the specified Product in the string format - Pair\BID\OFFER\STATUS\HIGH\LOW\DECIMALS\NOTATION\CLOSINGBID\CONTRACTPAIR\COUNTERPAIR$...</wsdl:documentation>
+      <wsdl:input message="tns:getRateHttpGetIn" />
+      <wsdl:output message="tns:getRateHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getAnonymousRate">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns Rate information for the specified Product in the string format - Pair\BID\OFFER\STATUS\HIGH\LOW\DECIMALS\NOTATION\CLOSINGBID\CONTRACTPAIR\COUNTERPAIR$...</wsdl:documentation>
+      <wsdl:input message="tns:getAnonymousRateHttpGetIn" />
+      <wsdl:output message="tns:getAnonymousRateHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="RatesServiceHttpPost">
+    <wsdl:operation name="getRateBlotter">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns Rates Blotter that includes Rate Information for all the Pairs in the string format - Pair\BID\OFFER\STATUS\HIGH\LOW\DECIMALS\NOTATION$Pair\BID\OFFER\STATUS\HIGH\LOW\DECIMALS\NOTATION\CLOSINGBID\CONTRACTPAIR\COUNTERPAIR$...</wsdl:documentation>
+      <wsdl:input message="tns:getRateBlotterHttpPostIn" />
+      <wsdl:output message="tns:getRateBlotterHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getAnonymousRateBlotter">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns Rates Blotter that includes Rate Information for all the Pairs in the string format - Pair\BID\OFFER\STATUS\HIGH\LOW\DECIMALS\NOTATION$Pair\BID\OFFER\STATUS\HIGH\LOW\DECIMALS\NOTATION\CLOSINGBID\CONTRACTPAIR\COUNTERPAIR$...</wsdl:documentation>
+      <wsdl:input message="tns:getAnonymousRateBlotterHttpPostIn" />
+      <wsdl:output message="tns:getAnonymousRateBlotterHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getRate">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns Rate information for the specified Product in the string format - Pair\BID\OFFER\STATUS\HIGH\LOW\DECIMALS\NOTATION\CLOSINGBID\CONTRACTPAIR\COUNTERPAIR$...</wsdl:documentation>
+      <wsdl:input message="tns:getRateHttpPostIn" />
+      <wsdl:output message="tns:getRateHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getAnonymousRate">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns Rate information for the specified Product in the string format - Pair\BID\OFFER\STATUS\HIGH\LOW\DECIMALS\NOTATION\CLOSINGBID\CONTRACTPAIR\COUNTERPAIR$...</wsdl:documentation>
+      <wsdl:input message="tns:getAnonymousRateHttpPostIn" />
+      <wsdl:output message="tns:getAnonymousRateHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="RatesServiceSoap" type="tns:RatesServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getRateBlotter">
+      <soap:operation soapAction="www.GainCapital.com.WebServices/getRateBlotter" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:getRateBlotterAuthenticator" part="Authenticator" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRates">
+      <soap:operation soapAction="www.GainCapital.com.WebServices/GetRates" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetRatesAuthenticator" part="Authenticator" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAnonymousRateBlotter">
+      <soap:operation soapAction="www.GainCapital.com.WebServices/getAnonymousRateBlotter" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:getAnonymousRateBlotterAuthenticator" part="Authenticator" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getRate">
+      <soap:operation soapAction="www.GainCapital.com.WebServices/getRate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:getRateAuthenticator" part="Authenticator" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAnonymousRate">
+      <soap:operation soapAction="www.GainCapital.com.WebServices/getAnonymousRate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:getAnonymousRateAuthenticator" part="Authenticator" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="RatesServiceSoap12" type="tns:RatesServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getRateBlotter">
+      <soap12:operation soapAction="www.GainCapital.com.WebServices/getRateBlotter" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:getRateBlotterAuthenticator" part="Authenticator" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRates">
+      <soap12:operation soapAction="www.GainCapital.com.WebServices/GetRates" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetRatesAuthenticator" part="Authenticator" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAnonymousRateBlotter">
+      <soap12:operation soapAction="www.GainCapital.com.WebServices/getAnonymousRateBlotter" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:getAnonymousRateBlotterAuthenticator" part="Authenticator" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getRate">
+      <soap12:operation soapAction="www.GainCapital.com.WebServices/getRate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:getRateAuthenticator" part="Authenticator" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAnonymousRate">
+      <soap12:operation soapAction="www.GainCapital.com.WebServices/getAnonymousRate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:getAnonymousRateAuthenticator" part="Authenticator" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="RatesServiceHttpGet" type="tns:RatesServiceHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="getRateBlotter">
+      <http:operation location="/getRateBlotter" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAnonymousRateBlotter">
+      <http:operation location="/getAnonymousRateBlotter" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getRate">
+      <http:operation location="/getRate" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAnonymousRate">
+      <http:operation location="/getAnonymousRate" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="RatesServiceHttpPost" type="tns:RatesServiceHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="getRateBlotter">
+      <http:operation location="/getRateBlotter" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAnonymousRateBlotter">
+      <http:operation location="/getAnonymousRateBlotter" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getRate">
+      <http:operation location="/getRate" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAnonymousRate">
+      <http:operation location="/getAnonymousRate" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="RatesService">
+    <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Provides rates Data for all the products or specific product</wsdl:documentation>
+    <wsdl:port name="RatesServiceSoap" binding="tns:RatesServiceSoap">
+      <soap:address location="http://demoweb.efxnow.com/gaincapitalwebservices/rates/ratesservice.asmx" />
+    </wsdl:port>
+    <wsdl:port name="RatesServiceSoap12" binding="tns:RatesServiceSoap12">
+      <soap12:address location="http://demoweb.efxnow.com/gaincapitalwebservices/rates/ratesservice.asmx" />
+    </wsdl:port>
+    <wsdl:port name="RatesServiceHttpGet" binding="tns:RatesServiceHttpGet">
+      <http:address location="http://demoweb.efxnow.com/gaincapitalwebservices/rates/ratesservice.asmx" />
+    </wsdl:port>
+    <wsdl:port name="RatesServiceHttpPost" binding="tns:RatesServiceHttpPost">
+      <http:address location="http://demoweb.efxnow.com/gaincapitalwebservices/rates/ratesservice.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

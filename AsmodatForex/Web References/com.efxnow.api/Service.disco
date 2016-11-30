@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<discovery xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/disco/">
+  <contractRef ref="http://api.efxnow.com/DEMOWebServices2.8/Service.asmx?wsdl" docRef="http://api.efxnow.com/DEMOWebServices2.8/Service.asmx" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
+  <soap address="http://api.efxnow.com/DEMOWebServices2.8/Service.asmx" xmlns:q1="https://api.efxnow.com/webservices2.3" binding="q1:Gain_x005F_x0020_Capital_x005F_x0020_-_x005F_x0020_AutoEx_x005F_x0020_Trading_x005F_x0020_APISoap" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+  <soap address="http://api.efxnow.com/DEMOWebServices2.8/Service.asmx" xmlns:q2="https://api.efxnow.com/webservices2.3" binding="q2:Gain_x005F_x0020_Capital_x005F_x0020_-_x005F_x0020_AutoEx_x005F_x0020_Trading_x005F_x0020_APISoap12" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+</discovery>

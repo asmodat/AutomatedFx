@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsmodatForexEngineAPI", "AsmodatForexEngineAPI\AsmodatForexEngineAPI.csproj", "{ABA1579A-5EAB-46F5-9312-62CA0C77A647}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ABA1579A-5EAB-46F5-9312-62CA0C77A647}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABA1579A-5EAB-46F5-9312-62CA0C77A647}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABA1579A-5EAB-46F5-9312-62CA0C77A647}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABA1579A-5EAB-46F5-9312-62CA0C77A647}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,417 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B79E81E6-E80A-4C8B-8DC4-4E9858D82067}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AsmodatForex</RootNamespace>
+    <AssemblyName>AsmodatForex</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'New|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\New\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'New|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\New\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Asmodat">
+      <HintPath>..\Asmodat\Asmodat\bin\Debug\Asmodat.dll</HintPath>
+    </Reference>
+    <Reference Include="AsmodatMath">
+      <HintPath>..\AsmodatMath\AsmodatMath\bin\Debug\AsmodatMath.dll</HintPath>
+    </Reference>
+    <Reference Include="MathNet.Numerics">
+      <HintPath>..\MathNet.Numerics\Net40\MathNet.Numerics.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Account\Account.cs" />
+    <Compile Include="Account\AccountInfo.cs" />
+    <Compile Include="Analysis\Analysis.cs" />
+    <Compile Include="Archive\Archive.cs" />
+    <Compile Include="Archive\DataOperations.cs" />
+    <Compile Include="Archive\Get.cs" />
+    <Compile Include="Archive\Initialize.cs" />
+    <Compile Include="Archive\Load.cs" />
+    <Compile Include="Archive\Repair.cs" />
+    <Compile Include="Archive\Rmove.cs" />
+    <Compile Include="Archive\Save.cs" />
+    <Compile Include="ChartPoint\ChartPoint.cs" />
+    <Compile Include="ChartPoint\ChartPointInfo.cs" />
+    <Compile Include="Deals\DealRequest.cs" />
+    <Compile Include="Deals\Initialize.cs" />
+    <Compile Include="Deals\Properties.cs" />
+    <Compile Include="Decoder.cs" />
+    <Compile Include="Rates\RateInfo\Combine.cs" />
+    <Compile Include="Rates\RateInfo\Extract.cs" />
+    <Compile Include="Service\Forex.cs" />
+    <Compile Include="Manager\GetSet.cs" />
+    <Compile Include="Rates\RateInfo\RateInfo.cs" />
+    <Compile Include="Rates\RateInfo\Convert.cs" />
+    <Compile Include="Service\Initialize\ForexServices.cs" />
+    <Compile Include="Rates\Rate.cs" />
+    <Compile Include="Service\Initialize\AbstractServices.cs" />
+    <Compile Include="Service\ServiceAuthentyfication\Decoding.cs" />
+    <Compile Include="Service\ServiceAuthentyfication\Initialize\Properties.cs" />
+    <Compile Include="Service\ServiceCharting\Decoding.cs" />
+    <Compile Include="Service\ServiceCharting\Initialize.cs" />
+    <Compile Include="Service\ServiceCharting\Timers.cs" />
+    <Compile Include="Service\ServiceConfiguartion\Initialize.cs" />
+    <Compile Include="Service\ServiceConfiguartion\TimeFrame.cs" />
+    <Compile Include="Service\ServiceRates\Decoding.cs" />
+    <Compile Include="Service\ServiceRates\Initialize.cs" />
+    <Compile Include="Service\ServiceRates\Timers.cs" />
+    <Compile Include="Service\ServiceRates\Update.cs" />
+    <Compile Include="Service\ServiceTrading\Abbreviate.cs" />
+    <Compile Include="Service\ServiceTrading\AccountManager.cs" />
+    <Compile Include="Service\ServiceTrading\Properties.cs" />
+    <Compile Include="Service\ServiceTrading\RequestManager.cs" />
+    <Compile Include="Service\TreadingAPI.cs" />
+    <Compile Include="Service\ServiceTrading\ServiceTrading.cs" />
+    <Compile Include="Service\ServiceRates\ServiceRates.cs" />
+    <Compile Include="Service\ServiceCharting\ServiceCharting.cs" />
+    <Compile Include="User\Credentials.cs" />
+    <Compile Include="Manager\Main.cs" />
+    <Compile Include="Service\ServiceConfiguartion\ServiceConfiguration.cs" />
+    <Compile Include="Service\ServiceAuthentyfication\Main.cs" />
+    <Compile Include="Service\ServiceAuthentyfication\Initialize\Initialize.cs" />
+    <Compile Include="Service\ServiceAuthentyfication\Timers.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\com.efxnow.api\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\com.efxnow.democharting.chartingservice\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\com.efxnow.demoweb.authentyficationservice\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\com.efxnow.demoweb.configurationservice\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\com.efxnow.demoweb.ratesservice\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\com.efxnow.demoweb.tradingservice\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://api.efxnow.com/DEMOWebServices2.8/Service.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\com.efxnow.api\</RelPath>
+      <UpdateFromURL>http://api.efxnow.com/DEMOWebServices2.8/Service.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>AsmodatForex_com_efxnow_api_Gain_x0020_Capital_x0020___x0020_AutoEx_x0020_Trading_x0020_API</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://democharting.efxnow.com/Charting/ChartingService.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\com.efxnow.democharting.chartingservice\</RelPath>
+      <UpdateFromURL>http://democharting.efxnow.com/Charting/ChartingService.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>AsmodatForex_com_efxnow_democharting_chartingservice_ChartingService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://demoweb.efxnow.com/gaincapitalwebservices/authenticate/authenticationservice.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\com.efxnow.demoweb.authentyficationservice\</RelPath>
+      <UpdateFromURL>https://demoweb.efxnow.com/gaincapitalwebservices/authenticate/authenticationservice.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>AsmodatForex_com_efxnow_demoweb_authentyficationservice_AuthenticationService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://demoweb.efxnow.com/GainCapitalWebServices/Configuration/ConfigurationService.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\com.efxnow.demoweb.configurationservice\</RelPath>
+      <UpdateFromURL>https://demoweb.efxnow.com/GainCapitalWebServices/Configuration/ConfigurationService.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>AsmodatForex_com_efxnow_demoweb_configurationservice_ConfigurationService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://demoweb.efxnow.com/gaincapitalwebservices/rates/ratesservice.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\com.efxnow.demoweb.ratesservice\</RelPath>
+      <UpdateFromURL>https://demoweb.efxnow.com/gaincapitalwebservices/rates/ratesservice.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>AsmodatForex_com_efxnow_demoweb_ratesservice_RatesService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://demoweb.efxnow.com/gaincapitalwebservices/trading/tradingservice.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\com.efxnow.demoweb.tradingservice\</RelPath>
+      <UpdateFromURL>https://demoweb.efxnow.com/gaincapitalwebservices/trading/tradingservice.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>AsmodatForex_com_efxnow_demoweb_tradingservice_TradingService</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\com.efxnow.api\objAccount.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\com.efxnow.api\objDealResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\com.efxnow.api\objMarketText.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\com.efxnow.api\objPlaceOrderResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\com.efxnow.api\objProductSubscriptionResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\com.efxnow.api\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\com.efxnow.api\Service.wsdl" />
+    <None Include="Web References\com.efxnow.democharting.chartingservice\BlotterOfSpread.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\com.efxnow.democharting.chartingservice\ChartData.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\com.efxnow.democharting.chartingservice\ChartImage.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\com.efxnow.democharting.chartingservice\ChartingService.wsdl" />
+    <None Include="Web References\com.efxnow.democharting.chartingservice\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\com.efxnow.demoweb.authentyficationservice\AuthenticationResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\com.efxnow.demoweb.authentyficationservice\AuthenticationResult.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\com.efxnow.demoweb.authentyficationservice\AuthenticationResult2.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\com.efxnow.demoweb.authentyficationservice\authenticationservice.wsdl" />
+    <None Include="Web References\com.efxnow.demoweb.authentyficationservice\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\com.efxnow.demoweb.configurationservice\BlotterOfPlatformSettings.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\com.efxnow.demoweb.configurationservice\BlotterOfProductSetting.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\com.efxnow.demoweb.configurationservice\BlotterOfString.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\com.efxnow.demoweb.configurationservice\BlotterOfSubAccount.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\com.efxnow.demoweb.configurationservice\BlotterOfTimeZones.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\com.efxnow.demoweb.configurationservice\BlotterOfUserSettings.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\com.efxnow.demoweb.configurationservice\BlotterOfUserTimeZone.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\com.efxnow.demoweb.configurationservice\ConfigurationService.wsdl" />
+    <None Include="Web References\com.efxnow.demoweb.configurationservice\ConfigurationSettings.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\com.efxnow.demoweb.configurationservice\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\com.efxnow.demoweb.configurationservice\Settings.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\com.efxnow.demoweb.ratesservice\ratesservice.wsdl" />
+    <None Include="Web References\com.efxnow.demoweb.ratesservice\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\com.efxnow.demoweb.tradingservice\BlotterOfActivity.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\com.efxnow.demoweb.tradingservice\BlotterOfDeal.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\com.efxnow.demoweb.tradingservice\BlotterOfDealInfo.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\com.efxnow.demoweb.tradingservice\BlotterOfDealResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\com.efxnow.demoweb.tradingservice\BlotterOfMargin.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\com.efxnow.demoweb.tradingservice\BlotterOfOrder.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\com.efxnow.demoweb.tradingservice\BlotterOfPosition.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\com.efxnow.demoweb.tradingservice\Confirmation.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\com.efxnow.demoweb.tradingservice\DealResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\com.efxnow.demoweb.tradingservice\OrderResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\com.efxnow.demoweb.tradingservice\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\com.efxnow.demoweb.tradingservice\tradingservice.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\com.efxnow.api\Service.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\com.efxnow.democharting.chartingservice\ChartingService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\com.efxnow.demoweb.authentyficationservice\authenticationservice.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\com.efxnow.demoweb.ratesservice\ratesservice.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\com.efxnow.demoweb.tradingservice\tradingservice.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\com.efxnow.demoweb.configurationservice\ConfigurationService.disco" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
